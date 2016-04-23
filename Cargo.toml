@@ -1,0 +1,6 @@
+[package]
+name = "summ_bench"
+version = "0.1.0"
+authors = ["Alexander Bezzubov <abezzubov@nflabs.com>"]
+
+[dependencies]
