@@ -22,9 +22,9 @@ cargo bench
 ```
 
 
-# Help
+# A few things
 
- 1. http://doc.rust-lang.org/stable/book/benchmark-tests.html and [this comment](https://github.com/rust-lang/rust/issues/8191#issuecomment-26105181) helped.
+ 1. http://doc.rust-lang.org/stable/book/benchmark-tests.html and [this comment](https://github.com/rust-lang/rust/issues/8191#issuecomment-26105181) helped
 
 
  2. 2 build targets, 2 warnings (as without `#![feature(test)]` in main.rs code does not compile) and benchmark is run twice
@@ -37,7 +37,7 @@ src/lib.rs:1 #![feature(test)]
              ^~~~~~~~~~~~~~~~~
   ```
 
- 3. https://github.com/benaryorg/rust-loop_benchmarking and https://gist.github.com/llogiq/5790594ac45ce25015b3 did the same
+ 3. https://github.com/benaryorg/rust-loop_benchmarking and https://gist.github.com/llogiq/5790594ac45ce25015b3 did the same, as discussed in [this thread](https://users.rust-lang.org/t/benchmark-for-loop-with-range-slower-than-while/1822/2)
 
 
  4. `time ./target/debug/summ_bench` results are not the same as in benchmarks
@@ -58,3 +58,11 @@ test tests::bench_while_summ ... bench:   9,458,491 ns/iter (+/- 1,716,022)
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 2 measured
   ```
+
+
+ 5. `cargo rustc --lib -- --emit=llvm-ir` gereates LLVM IR in `target/debug/summ_bench.ll`
+
+ 6. In 15 min could not find a simple disassembly tool
+   - looks like a TODO in `rustc` https://github.com/rust-lang/rfcs/issues/652
+   - here some helpfull advices https://www.reddit.com/r/rust/comments/2nr84y/how_do_you_generate_readable_assembly/
+   - rust is supported on http://rust.godbolt.org/
