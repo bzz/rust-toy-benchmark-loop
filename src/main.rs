@@ -3,7 +3,7 @@
 mod lib;
 
 fn main() {
-    //lib::summ_iter();
-    let sum = lib::summ_iter();
+    //let sum = summ_iter();
+    let sum = lib::summ_while();
     println!("Sum: {}", sum);
 }

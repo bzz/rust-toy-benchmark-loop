@@ -5,7 +5,7 @@ extern crate test;
 #[allow(dead_code)]
 pub fn summ_iter() -> f64 {
     let mut sum = 0.0;
-    for i in 0..10000000 {
+    for i in 0..1000000 {
         sum += i as f64;
     }
     return sum
@@ -15,7 +15,7 @@ pub fn summ_iter() -> f64 {
 pub fn summ_while() -> f64 {
     let mut sum = 0.0;
     let mut i = 0;
-    while i < 10000000 {
+    while i < 1000000 {
         sum += i as f64;
         i += 1;
     }
@@ -30,11 +30,11 @@ mod tests {
 
     #[bench]
     fn bench_iter_summ(b: &mut Bencher) {
-        b.iter(|| summ_iter());
+        b.iter(summ_iter);
     }
 
     #[bench]
     fn bench_while_summ(b: &mut Bencher) {
-        b.iter(|| summ_while());
+        b.iter(summ_while);
     }
 }
